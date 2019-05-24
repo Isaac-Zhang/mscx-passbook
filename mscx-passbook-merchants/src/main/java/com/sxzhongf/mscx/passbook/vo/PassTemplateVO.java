@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 /**
- * PassTemplate for 优惠券对象
+ * PassTemplateVO for 优惠券对象
  *
  * @author <a href="mailto:magicianisaac@gmail.com">Isaac.Zhang</a>
  * @see
@@ -18,7 +18,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PassTemplate {
+public class PassTemplateVO {
 
     /**
      * 所属商户id

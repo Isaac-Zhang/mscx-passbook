@@ -1,7 +1,8 @@
-package com.sxzhongf.mscx.passbook.service;
+package com.sxzhongf.mscx.passbook.service.impl;
 
 import com.sxzhongf.mscx.passbook.dao.MerchantsDao;
 import com.sxzhongf.mscx.passbook.enums.ErrorCodeEnum;
+import com.sxzhongf.mscx.passbook.service.IMerchantsService;
 import com.sxzhongf.mscx.passbook.vo.CommonResponseVO;
 import com.sxzhongf.mscx.passbook.vo.CreateMerchantsRequestVO;
 import com.sxzhongf.mscx.passbook.vo.CreateMerchantsResponseVO;

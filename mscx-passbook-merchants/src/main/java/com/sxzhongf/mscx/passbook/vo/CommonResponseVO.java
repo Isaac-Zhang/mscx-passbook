@@ -5,15 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * CommonResponse for 通用Response返回对象
+ * CommonResponseVO for 通用CommonResponseVO返回对象
  *
  * @author <a href="mailto:magicianisaac@gmail.com">Isaac.Zhang</a>
  * @since 2019/5/24
  */
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class CommonResponse {
+public class CommonResponseVO {
 
     /**
      * 错误编码，正确返回0
@@ -30,7 +29,10 @@ public class CommonResponse {
      */
     private Object data;
 
-    public CommonResponse(Object data) {
+    public CommonResponseVO() {
+    }
+
+    public CommonResponseVO(Object data) {
         this.data = data;
     }
 }

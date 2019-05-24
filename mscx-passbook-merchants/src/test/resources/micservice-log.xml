@@ -9,44 +9,9 @@
     <springProperty scope="context" name="logStore" source="alilog.micservice.logStore"/>
     <springProperty scope="context" name="applicationName" source="spring.application.name"/>
 
-
-
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
-    <appender name="ALI_LOG" class="com.yi23.common.appender.AliLogAppender">
-        <!--ali log只接受 info往上级别的日志  过滤掉 TRACE 和 DEBUG 级别的日志 -->
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>INFO</level>
-        </filter>
-        <enable>${enable}</enable>
-        <endpoint>${endpoint}</endpoint>
-        <accessKeyId>${accessKeyId}</accessKeyId>
-        <accessKeySecret>${accessKeySecret}</accessKeySecret>
-        <projectName>${projectName}</projectName>
-        <logStore>${logStore}</logStore>
-        <topic>${applicationName}</topic>
-
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%msg</pattern>
-        </layout>
-    </appender>
-
-
-    <logger name="com.yi23" level="DEBUG"/>
-
-    <!--测试输出到ali云上面-->
-    <springProfile name="test">
-        <logger name="com.yi23" level="DEBUG" additivity="true">
-            <appender-ref ref="ALI_LOG"/>
-        </logger>
-    </springProfile>
-
-    <!--线上日志输出到alilog上面，向上传递到root输出到控制台-->
-    <springProfile name="pre,prd">
-        <logger name="com.yi23" level="INFO" additivity="true">
-            <appender-ref ref="ALI_LOG"/>
-        </logger>
-    </springProfile>
+    <logger name="com.sxzhongf" level="DEBUG"/>
 
     <!--根日志基本是INFO，输出到控制台-->
     <root level="INFO">
