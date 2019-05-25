@@ -23,7 +23,6 @@ public class MerchantsController {
 
     /**
      * 商户服务接口注入
-     *
      */
     private final IMerchantsService merchantsService;
 
