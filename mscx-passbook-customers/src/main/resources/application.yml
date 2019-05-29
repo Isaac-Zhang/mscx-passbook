@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: PassbookCustomers
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/passbook?useSSL=false&autoReconnect=true
+    username: root
+    password: 12345678
+  kafka:
+    bootstrap-servers: 127。0。0。1：9092 #kafka集群地址
+    consumer:
+      group-id: passbook #kafka的消费者组
+    listener:
+      concurrency: 4 #代表4个线程监听consumer的group
+  data:
+    hbase:
+      quorum: 127.0.0.1:2181
+      rootDir: file:///usr/local/var/hbase
+      nodeParent: /hbase
+  redis:
+    host: 127.0.0.1
+    port: 6379
+server:
+  port: 9528
+
+logging:
+  file: passbook-customers.log #当前工程根目录
+  level: debug
