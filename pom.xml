@@ -6,6 +6,7 @@
     <modules>
         <module>mscx-passbook-merchants</module>
         <module>mscx-passbook-database</module>
+        <module>mscx-passbook-customers</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
