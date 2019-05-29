@@ -3,6 +3,8 @@ package com.sxzhongf.mscx.passbook.dao;
 import com.sxzhongf.mscx.passbook.entity.Merchants;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 /**
  * MerchantsDao for Dao接口
  *
@@ -18,7 +20,8 @@ public interface MerchantsDao extends JpaRepository<Merchants, Integer> {
      * @param id 商户id
      * @return {@link Merchants}
      */
-    Merchants getById(Integer id);
+    @Override
+    Optional<Merchants> findById(Integer id);
 
     /**
      * 根据name 获取商户对象
@@ -26,5 +29,5 @@ public interface MerchantsDao extends JpaRepository<Merchants, Integer> {
      * @param name 商户id
      * @return {@link Merchants}
      */
-    Merchants getByName(String name);
+    Merchants findByName(String name);
 }

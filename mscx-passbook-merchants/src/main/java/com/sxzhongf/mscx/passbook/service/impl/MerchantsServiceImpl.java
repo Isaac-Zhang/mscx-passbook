@@ -16,6 +16,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 /**
  * MerchantsServiceImpl for TODO
@@ -66,8 +67,8 @@ public class MerchantsServiceImpl implements IMerchantsService {
     @Override
     public CommonResponseVO buildMerchantsInfoById(Integer id) {
         CommonResponseVO responseVO = new CommonResponseVO();
-        Merchants merchants = merchantsDao.getById(id);
-        if (null == merchants) {
+        Optional<Merchants> merchants = merchantsDao.findById(id);
+        if (null == merchants.get()) {
             responseVO.setErrorCode(ErrorCodeEnum.MERCHANT_NOT_EXIST.getCode());
             responseVO.setErrorMsg(ErrorCodeEnum.MERCHANT_NOT_EXIST.getDesc());
         }
