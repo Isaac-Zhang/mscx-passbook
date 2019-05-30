@@ -36,7 +36,7 @@ public class PassTemplateVO {
     /**
      * 优惠券是否有token，用于商户核销
      */
-    private boolean hasToken;
+    private String hasToken;
     private Integer background;
     private Date start;
     private Date end;

@@ -46,7 +46,7 @@ public class MerchantsController {
     }
 
     @PostMapping("/launch")
-    public CommonResponseVO createMerchants(@RequestBody PassTemplateVO passTemplateVO) {
+    public CommonResponseVO launchMerchants(@RequestBody PassTemplateVO passTemplateVO) {
         log.info("商户发送优惠券信息: {}", JSON.toJSONString(passTemplateVO));
         return merchantsService.launchPassTemplate(passTemplateVO);
     }
