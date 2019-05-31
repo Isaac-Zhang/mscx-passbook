@@ -7,7 +7,6 @@ import com.sxzhongf.mscx.passbook.vo.ResponseVO;
  * 只返回用户没有领取的库存
  *
  * @author <a href="mailto:magicianisaac@gmail.com">Isaac.Zhang</a>
- * @see
  * @since 2019/5/31
  */
 public interface IInventoryService {

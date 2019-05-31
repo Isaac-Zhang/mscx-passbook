@@ -10,7 +10,6 @@ import org.apache.commons.codec.digest.DigestUtils;
  * RowKeyGenerateUtils for HBase Rowkey 生成器工具类
  *
  * @author <a href="mailto:magicianisaac@gmail.com">Isaac.Zhang</a>
- * @see
  * @since 2019/5/30
  */
 @Slf4j
@@ -60,7 +59,6 @@ public class RowKeyGenerateUtils {
         String userIdReverseStr = new StringBuilder(
                 String.valueOf(feedback.getUserId())
         ).reverse().toString();
-        String rowKey = userIdReverseStr + (Long.MAX_VALUE - System.currentTimeMillis());
-        return rowKey;
+        return userIdReverseStr + (Long.MAX_VALUE - System.currentTimeMillis());
     }
 }

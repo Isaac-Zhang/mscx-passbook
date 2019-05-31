@@ -7,7 +7,6 @@ import com.sxzhongf.mscx.passbook.vo.ResponseVO;
  * IUserPassService for 获取用户个人优惠券信息
  *
  * @author <a href="mailto:magicianisaac@gmail.com">Isaac.Zhang</a>
- * @see
  * @since 2019/5/31
  */
 public interface IUserPassService {

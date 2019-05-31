@@ -7,7 +7,6 @@ import com.sxzhongf.mscx.passbook.vo.ResponseVO;
  * IPassTemplayeService for 用户优惠券功能service
  *
  * @author <a href="mailto:magicianisaac@gmail.com">Isaac.Zhang</a>
- * @see
  * @since 2019/5/31
  */
 public interface IPassTemplayeService {
