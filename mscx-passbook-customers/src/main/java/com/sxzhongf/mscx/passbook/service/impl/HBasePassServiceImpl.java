@@ -77,7 +77,7 @@ public class HBasePassServiceImpl implements IHBasePassService {
         putObject.addColumn(
                 Bytes.toBytes(Constants.PassTemplateTable.FAMILY_B),
                 Bytes.toBytes(Constants.PassTemplateTable.HAS_TOKEN),
-                Bytes.toBytes(passTemplateVO.getHasToken())
+                Bytes.toBytes(passTemplateVO.isHasToken())
         );
         putObject.addColumn(
                 Bytes.toBytes(Constants.PassTemplateTable.FAMILY_B),
