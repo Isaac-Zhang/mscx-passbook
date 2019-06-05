@@ -228,7 +228,7 @@ public class UserPassServiceImpl implements IUserPassService {
             passTemplateVO.setTitle(Bytes.toString(item.getValue(FAMILY_B, TITLE)));
             passTemplateVO.setSummary(Bytes.toString(item.getValue(FAMILY_B, SUMMARY)));
             passTemplateVO.setDesc(Bytes.toString(item.getValue(FAMILY_B, DESC)));
-            passTemplateVO.setHasToken(Bytes.toString(item.getValue(FAMILY_B, HAS_TOKEN)));
+            passTemplateVO.setHasToken(Bytes.toBoolean(item.getValue(FAMILY_B, HAS_TOKEN)));
             passTemplateVO.setBackground(Bytes.toInt(item.getValue(FAMILY_B, BACKGROUND)));
 
             passTemplateVO.setLimit(Bytes.toLong(item.getValue(FAMILY_C, LIMIT)));

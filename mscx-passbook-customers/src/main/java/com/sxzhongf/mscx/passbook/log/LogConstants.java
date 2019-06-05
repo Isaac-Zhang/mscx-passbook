@@ -33,7 +33,7 @@ public class LogConstants {
         /**
          * 用户领取优惠券
          */
-        public static final String DRAW_PASS_TEMPLATE = "DrawPassTemplate";
+        public static final String RECEIVE_PASS_TEMPLATE = "ReceivePassTemplate";
         /**
          * 创建评论
          */
@@ -42,6 +42,11 @@ public class LogConstants {
          * 获取评论
          */
         public static final String GET_FEEDBAK = "GetFeedback";
+
+        /**
+         * 创建用户
+         */
+        public static final  String CREATE_USER = "CreateUser";
 
     }
 }
