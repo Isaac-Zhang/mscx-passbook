@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
  * @since 2019/5/30
  */
 @Data
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 public class ResponseVO {
 
@@ -44,6 +44,8 @@ public class ResponseVO {
     public static ResponseVO success() {
         return new ResponseVO();
     }
+
+    public ResponseVO (){}
 
     /**
      * 错误响应

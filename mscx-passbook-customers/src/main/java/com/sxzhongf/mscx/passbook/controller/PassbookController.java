@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Slf4j
 @RestController
-@RequestMapping(path = "/v1/passbook")
+@RequestMapping("/v1/passbook")
 public class PassbookController {
 
     /**
@@ -105,31 +105,12 @@ public class PassbookController {
     }
 
     /**
-     * 获取用户所有优惠券信息
-     *
-     * @param user_id user_id
-     */
-    @GetMapping(path = "/user/{user_id}")
-    public ResponseVO getAllUserPassbookByUserId(@PathVariable(name = "user_id") Long user_id) {
-        ResponseVO responseVO;
-        LogGenerator.writeLog(httpServletRequest, user_id, "getAllUserPassbookByUserId", null);
-
-        try {
-            responseVO = userPassService.getUserUsedPassInfo(user_id);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseVO.failure("获取用户所有优惠券失败！");
-        }
-        return responseVO;
-    }
-
-    /**
      * 使用使用优惠券
      *
      * @param passVO {@link PassVO}
      * @return {@link ResponseVO}
      */
-    @PostMapping(name = "/user/spent")
+    @PostMapping(path = "/user/spent")
     public ResponseVO userSpentPassbook(@RequestBody PassVO passVO) {
         LogGenerator.writeLog(
                 httpServletRequest, passVO.getUserId(), LogConstants.ActionName.USER_USE_PASS, passVO
@@ -143,7 +124,7 @@ public class PassbookController {
      * @param user_id 用户id
      * @return {@link ResponseVO}
      */
-    @PostMapping(name = "/user/inventory")
+    @GetMapping(path = "/user/inventory")
     public ResponseVO getUserInventory(@RequestParam("user_id") Long user_id) {
         LogGenerator.writeLog(
                 httpServletRequest, user_id, LogConstants.ActionName.INVENTORY_INFO, null

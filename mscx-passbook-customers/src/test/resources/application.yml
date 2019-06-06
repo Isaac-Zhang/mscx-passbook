@@ -1,6 +1,6 @@
 spring:
   application:
-    name: PassbookCustomers
+    name: PassbookCustomersForTest
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/passbook?useSSL=false&autoReconnect=true
     username: root
@@ -24,4 +24,3 @@ server:
 
 logging:
   file: passbook-customers.log #当前工程根目录
-  level: debug
