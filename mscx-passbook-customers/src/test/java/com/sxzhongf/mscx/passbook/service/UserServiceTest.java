@@ -22,6 +22,10 @@ public class UserServiceTest {
     @Autowired
     private IUserService userService;
 
+    /**
+     * {"data":{"baseInfo":{"age":18,"name":"Isaac","sex":"m"},
+     * "id":398711,"otherInfo":{"address":"果粒城","phone":"15009299224"}},"errorCode":0,"errorMsg":""}
+     */
     @Test
     public void testCreateUser() throws Exception {
         UserVO user = new UserVO();

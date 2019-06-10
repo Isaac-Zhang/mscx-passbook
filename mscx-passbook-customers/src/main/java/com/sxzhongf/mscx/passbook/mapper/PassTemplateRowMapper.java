@@ -48,6 +48,6 @@ public class PassTemplateRowMapper implements RowMapper<PassTemplateVO> {
         passTemplate.setStart(DateUtils.parseDate(Bytes.toString(result.getValue(FAMILY_C, START)), patterns));
         passTemplate.setEnd(DateUtils.parseDate(Bytes.toString(result.getValue(FAMILY_C, END)), patterns));
 
-        return null;
+        return passTemplate;
     }
 }

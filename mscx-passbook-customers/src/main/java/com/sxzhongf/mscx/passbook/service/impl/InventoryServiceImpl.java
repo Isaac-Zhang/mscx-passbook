@@ -69,7 +69,7 @@ public class InventoryServiceImpl implements IInventoryService {
 
         return new ResponseVO(new InventoryResponseVO(userId,
                 buildPassTemplateInfo(
-                        getAvaliablePassTemplate(needToBeExcludedIds))
+                        getAvailablePassTemplate(needToBeExcludedIds))
         ));
     }
 
@@ -79,7 +79,7 @@ public class InventoryServiceImpl implements IInventoryService {
      * @param excludeIds 需要排除的优惠券ids
      * @return {@link List<PassTemplateVO>}
      */
-    private List<PassTemplateVO> getAvaliablePassTemplate(List<String> excludeIds) {
+    private List<PassTemplateVO> getAvailablePassTemplate(List<String> excludeIds) {
 
         //该条件集合被设置为or的关系，标示多条件只需满足其中任意一个条件即可
         FilterList filterList = new FilterList(FilterList.Operator.MUST_PASS_ONE);
@@ -112,7 +112,7 @@ public class InventoryServiceImpl implements IInventoryService {
                 scan, new PassTemplateRowMapper()
         );
 
-        List<PassTemplateVO> avaliableList = new ArrayList<>();
+        List<PassTemplateVO> availableList = new ArrayList<>();
         //定义当前时间，检查优惠券是否过期
         Date current = new Date();
         for (PassTemplateVO item : validList) {
@@ -122,10 +122,10 @@ public class InventoryServiceImpl implements IInventoryService {
             }
             //校验当前用户群是否在可用日期范围内
             if (current.getTime() >= item.getStart().getTime() && current.getTime() <= item.getEnd().getTime()) {
-                avaliableList.add(item);
+                availableList.add(item);
             }
         }
-        return avaliableList;
+        return availableList;
     }
 
     /**
