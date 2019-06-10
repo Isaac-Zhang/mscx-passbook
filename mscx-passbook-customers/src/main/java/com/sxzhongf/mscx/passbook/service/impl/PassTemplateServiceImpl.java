@@ -17,7 +17,9 @@ import org.apache.hadoop.hbase.util.Bytes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -143,10 +145,13 @@ public class PassTemplateServiceImpl implements IPassTemplateService {
      * @throws IOException 写入异常
      */
     private void recordTokenToFile(Integer merchantId, String passTemplateId, String token) throws IOException {
+        String real_path = ResourceUtils.getURL("classpath:").getPath();
+//        File currentFile = new File(real_path + "templates/" + Constants.TOKEN_DIR + merchantId);
         Files.write(
-                Paths.get(Constants.TOKEN_DIR, String.valueOf(merchantId),
+                Paths.get((real_path + "templates/" + Constants.TOKEN_DIR), String.valueOf(merchantId),
                         passTemplateId + Constants.USED_TOKEN_SUFFIX),
                 (token + "\n").getBytes(),
+                StandardOpenOption.CREATE,
                 StandardOpenOption.APPEND
         );
     }
