@@ -33,7 +33,7 @@ public class CreateMerchantsRequestVO {
      */
     public ErrorCodeEnum validate(MerchantsDao merchantsDao) {
 
-        if (merchantsDao.getByName(name) != null) {
+        if (merchantsDao.findByName(name) != null) {
             return ErrorCodeEnum.DUPLICATE_NAME;
         }
 

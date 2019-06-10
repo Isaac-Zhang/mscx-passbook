@@ -24,4 +24,3 @@ server:
 
 logging:
   file: passbook-customers.log #当前工程根目录
-  level: debug

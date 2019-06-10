@@ -17,7 +17,7 @@ public class Constants {
     /**
      * token 文件存储目录
      */
-    public static final String TOKEN_DIR = "/temp/token";
+    public static final String TOKEN_DIR = "/temp/token/";
 
     /**
      * 已使用的 token 文件后缀名

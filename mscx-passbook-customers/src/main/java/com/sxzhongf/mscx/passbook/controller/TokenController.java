@@ -9,6 +9,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +47,7 @@ public class TokenController {
     }
 
     @GetMapping(path = "/upload")
+    //d8f14e90ed5a8d2daf86dd3f05e7d17e
     public String upload() {
         return "upload";
     }
@@ -53,14 +55,14 @@ public class TokenController {
     /**
      * 文件上传Action
      *
-     * @param merchantId Form表单数据：商户id
-     * @param passTemplateId Form表单数据：优惠券模版id
-     * @param file Form表单数据：要上传的文件
+     * @param merchantsId        Form表单数据：商户id
+     * @param passTemplateId     Form表单数据：优惠券模版id
+     * @param file               Form表单数据：要上传的文件
      * @param redirectAttributes 重定向属性
      * @return 重定向的View名称
      */
     @PostMapping(path = "/token")
-    public String tokenFileUpload(@RequestParam String merchantId,
+    public String tokenFileUpload(@RequestParam String merchantsId,
                                   @RequestParam String passTemplateId,
                                   @RequestParam MultipartFile file,
                                   RedirectAttributes redirectAttributes) {
@@ -70,12 +72,13 @@ public class TokenController {
             return "redirect:/upload/status";
         }
         try {
-            File currentFile = new File(Constants.TOKEN_DIR + merchantId);
+            String real_path = ResourceUtils.getURL("classpath:").getPath();
+            File currentFile = new File(real_path + "templates/" + Constants.TOKEN_DIR + merchantsId);
             if (!currentFile.exists()) {
                 log.info("Create file dir : {}", currentFile.mkdir());
             }
 
-            Path path = Paths.get(Constants.TOKEN_DIR, merchantId, passTemplateId);
+            Path path = Paths.get(real_path + "templates/" + Constants.TOKEN_DIR, merchantsId, passTemplateId);
             Files.write(path, file.getBytes());
 
             //如果写入Redis报错
@@ -94,9 +97,8 @@ public class TokenController {
         return "redirect:/upload/status";
     }
 
-    @GetMapping(name = "/upload/status/message")
-    public String uploadStatus(@PathVariable(required = false) String message, Model model) {
-        model.addAttribute("message", message);
+    @GetMapping(name = "/upload/status")
+    public String uploadStatus() {
         return "upload-status";
     }
 

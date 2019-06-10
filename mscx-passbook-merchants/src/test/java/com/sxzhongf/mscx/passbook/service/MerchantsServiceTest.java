@@ -105,13 +105,13 @@ public class MerchantsServiceTest {
         PassTemplateVO passTemplateVO = new PassTemplateVO();
         //设置商户id为18
         passTemplateVO.setId(18);
-        passTemplateVO.setTitle("title: 众福");
+        passTemplateVO.setTitle("title: 众福-2");
         passTemplateVO.setSummary("简介: 众福优惠券");
         passTemplateVO.setDesc("详情: 众福优惠券");
         passTemplateVO.setLimit(10000L);
-        passTemplateVO.setHasToken(false);
+        passTemplateVO.setHasToken(true);
         passTemplateVO.setBackground(2);
-        passTemplateVO.setStart(new Date());
+        passTemplateVO.setStart(DateUtils.addDays(new Date(),-10));
         passTemplateVO.setEnd(DateUtils.addDays(new Date(), 10));
 
         System.out.println(JSON.toJSONString(merchantsService.launchPassTemplate(passTemplateVO)));
