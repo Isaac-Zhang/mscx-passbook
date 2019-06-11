@@ -124,11 +124,11 @@ public class PassTemplateServiceImpl implements IPassTemplateService {
             recordTokenToFile(merchantsId, passTemplateId, token);
             put.addColumn(FIMILY_I, TOKEN, Bytes.toBytes(token));
         } else {
-            put.addColumn(FIMILY_I, TOKEN, Bytes.toBytes(-1));
+            put.addColumn(FIMILY_I, TOKEN, Bytes.toBytes("-1"));
         }
         put.addColumn(FIMILY_I, ASSIGNED_DATE,
                 Bytes.toBytes(DateFormatUtils.ISO_8601_EXTENDED_DATE_FORMAT.format(new Date())));
-        put.addColumn(FIMILY_I, CONSUME_DATE, Bytes.toBytes(-1));
+        put.addColumn(FIMILY_I, CONSUME_DATE, Bytes.toBytes("-1"));
 
         datas.add(put);
 

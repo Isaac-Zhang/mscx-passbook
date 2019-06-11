@@ -31,7 +31,7 @@ public class PassRowMapper implements RowMapper<PassVO> {
         pass.setTemplateId(Bytes.toString(result.getValue(FAMILY_I, TEMPLATE_ID)));
         pass.setToken(Bytes.toString(result.getValue(FAMILY_I, TOKEN)));
 
-        String[] patterns = new String[]{"yyyy-MM-dd dd:MM:ss"};
+        String[] patterns = new String[]{"yyyy-MM-dd"};
         pass.setAssignedDate(DateUtils.parseDate(Bytes.toString(result.getValue(FAMILY_I, ASSIGNED_DATE)), patterns));
 
         String consume_date = Bytes.toString(result.getValue(FAMILY_I, CONSUME_DATE));
@@ -41,7 +41,7 @@ public class PassRowMapper implements RowMapper<PassVO> {
         } else {
             pass.setConsumeDate(DateUtils.parseDate(consume_date, patterns));
         }
-
+        pass.setRowKey(Bytes.toString(result.getRow()));
         return pass;
     }
 }

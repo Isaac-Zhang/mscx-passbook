@@ -88,7 +88,7 @@ public class UserPassServiceImpl implements IUserPassService {
         ));
         filters.add(new SingleColumnValueFilter(FIMILY_I, CONSUME_DATE,
                 CompareFilter.CompareOp.EQUAL,
-                Bytes.toBytes(-1)
+                Bytes.toBytes("-1")
         ));
         scan.setFilter(new FilterList(filters));
 
