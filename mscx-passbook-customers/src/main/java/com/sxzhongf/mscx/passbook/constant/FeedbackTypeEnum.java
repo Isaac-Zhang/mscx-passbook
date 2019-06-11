@@ -8,10 +8,10 @@ package com.sxzhongf.mscx.passbook.constant;
  * @since 2019/5/29
  */
 public enum FeedbackTypeEnum {
-    PASS(1, "针对优惠券的评论"),
-    APP(2, "针对卡包APP的评论");
+    PASS("pass", "针对优惠券的评论"),
+    APP("app", "针对卡包APP的评论");
 
-    public Integer getCode() {
+    public String getCode() {
         return code;
     }
 
@@ -19,10 +19,10 @@ public enum FeedbackTypeEnum {
         return desc;
     }
 
-    private Integer code;
+    private String code;
     private String desc;
 
-    FeedbackTypeEnum(Integer code, String desc) {
+    FeedbackTypeEnum(String code, String desc) {
         this.code = code;
         this.desc = desc;
     }
