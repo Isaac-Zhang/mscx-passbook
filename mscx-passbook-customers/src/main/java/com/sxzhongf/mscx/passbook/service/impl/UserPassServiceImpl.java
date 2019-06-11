@@ -141,7 +141,7 @@ public class UserPassServiceImpl implements IUserPassService {
                     Constants.PassTable.FAMILY_I.getBytes(),
                     Constants.PassTable.CON_DATE.getBytes(),
                     compareOp,
-                    Bytes.toBytes(-1)
+                    Bytes.toBytes("-1")
             ));
         }
         scan.setFilter(new FilterList(filters));

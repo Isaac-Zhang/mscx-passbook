@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
  * @see
  * @since 2019/5/30
  */
-@EqualsAndHashCode(callSuper = true)
+//@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PassTemplateInfoVO extends PassTemplateVO {
+public class PassTemplateInfoVO {
 
     /**
      * 优惠券模版
